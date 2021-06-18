@@ -11,72 +11,72 @@ void print_board(vector <int >);
 int main()
 {
 
-    int Ans = 0; // ¼Æ¿W¸Ñªº­Ó¼Æ
+    int Ans = 0; // æ•¸ç¨è§£çš„å€‹æ•¸
     vector <int > digboard;
-    SudokuGen NewBoard; // ²£¥Í´Ñ½Lª«¥ó
-    vector <int > board = NewBoard.get_board(); //¨ú±o´Ñ½L
+    SudokuGen NewBoard; // ç”¢ç”Ÿæ£‹ç›¤ç‰©ä»¶
+    vector <int > board = NewBoard.get_board(); //å–å¾—æ£‹ç›¤
     
-	cout << "·Q­n¦Û¤vª±½Ğ¿é¤J 1 :" << endl;
-	cout << "·Q­n¹q¸£À°§A¸ÑÃD½Ğ¿é¤J 0 :" << endl;
-	cout << "§Aªº¿ï¾Ü¬O?";
+	cout << "æƒ³è¦è‡ªå·±ç©è«‹è¼¸å…¥ 1 :" << endl;
+	cout << "æƒ³è¦é›»è…¦å¹«ä½ è§£é¡Œè«‹è¼¸å…¥ 0 :" << endl;
+	cout << "ä½ çš„é¸æ“‡æ˜¯?";
 	int playerchose;
 	cin >> playerchose;
 	if (playerchose == 1)
 	{
-		cout << "¦n ·Ç³Æ¶}©l¹CÀ¸OwO!" << endl;
+		cout << "å¥½ æº–å‚™é–‹å§‹éŠæˆ²OwO!" << endl;
 	}
 	else if (playerchose == 0)
 	{
-		cout << "¹q¸£µ¥µ¥·|À°§A¸ÑÃD­òOuO!" << endl;
+		cout << "é›»è…¦ç­‰ç­‰æœƒå¹«ä½ è§£é¡Œå”·OuO!" << endl;
 	}
 	else if (playerchose != 1 && playerchose != 0)
 	{
-		cout << "¿é¤J 1 ©Î 0 °Õ!!" << endl;
-		cout << "§Aªº¿ï¾Ü¬O?";
+		cout << "è¼¸å…¥ 1 æˆ– 0 å•¦!!" << endl;
+		cout << "ä½ çš„é¸æ“‡æ˜¯?";
 		cin >> playerchose;
 
 		if (playerchose == 1)
 		{
-			cout << "¦n ·Ç³Æ¶}©l¹CÀ¸OwO!" << endl;
+			cout << "å¥½ æº–å‚™é–‹å§‹éŠæˆ²OwO!" << endl;
 		}
 		else if (playerchose == 0)
 		{
-			cout << "¹q¸£µ¥µ¥·|À°§A¸ÑÃD­òOuO!" << endl;
+			cout << "é›»è…¦ç­‰ç­‰æœƒå¹«ä½ è§£é¡Œå”·OuO!" << endl;
 		}
 		else if (playerchose != 1 && playerchose != 0)
 		{
-			cout << "¿é¤J 1 ©Î 0 °Õ!!!!!!!!!!!!!!!!!Å¥¤£À´°f?" << endl;
-			cout << "§Aªº¿ï¾Ü¬O?";
+			cout << "è¼¸å…¥ 1 æˆ– 0 å•¦!!!!!!!!!!!!!!!!!è½ä¸æ‡‚é€†?" << endl;
+			cout << "ä½ çš„é¸æ“‡æ˜¯?";
 			cin >> playerchose;
 
 			if (playerchose == 1)
 			{
-				cout << "¦n ·Ç³Æ¶}©l¹CÀ¸OwO!" << endl;
+				cout << "å¥½ æº–å‚™é–‹å§‹éŠæˆ²OwO!" << endl;
 			}
 			else if (playerchose == 0)
 			{
-				cout << "¹q¸£µ¥µ¥·|À°§A¸ÑÃD­òOuO!" << endl;
+				cout << "é›»è…¦ç­‰ç­‰æœƒå¹«ä½ è§£é¡Œå”·OuO!" << endl;
 			}
 			else if (playerchose != 1 && playerchose != 0) {
-				cout << "¦n§a¬İ¨Ó§A¤£·Qª±QAQ ÙTÙT" << endl;
+				cout << "å¥½å§çœ‹ä¾†ä½ ä¸æƒ³ç©QAQ æ°æ°" << endl;
 				return 0;
 			}
 		}
 	}
 	int hole;
-	cout << "½Ğ¿é¤J·Q­n«õ´X­Ó¬}(³Ì¤Ö10­Ó,³Ì¦h40­Ó):";
+	cout << "è«‹è¼¸å…¥æƒ³è¦æŒ–å¹¾å€‹æ´(æœ€å°‘10å€‹,æœ€å¤š40å€‹):";
 	cin >> hole;
-	if (hole >= 40 || hole <= 10)
+	if (hole > 40 || hole < 10)
 	{
-		cout <<endl<< "½Ğ¿é¤J10~40:";
+		cout <<endl<< "è«‹è¼¸å…¥10~40:";
 		cin >> hole ;
-		if (hole >= 40 || hole <= 10)
+		if (hole > 40 || hole < 10)
 		{
-			cout << endl << "½Ğ¿é¤J10~40!!!!!!!!!!!!!!Å¥¤£À´°f?:";
+			cout << endl << "è«‹è¼¸å…¥10~40!!!!!!!!!!!!!!è½ä¸æ‡‚é€†?:";
 			cin >> hole;
-			if (hole >= 40 || hole <= 10)
+			if (hole > 40 || hole < 10)
 			{
-				cout << endl << "¦n§a¬İ¨Ó§A¤£·Qª±QAQ ÙTÙT";
+				cout << endl << "å¥½å§çœ‹ä¾†ä½ ä¸æƒ³ç©QAQ æ°æ°";
 				return 0;
 			}
 
@@ -84,33 +84,34 @@ int main()
 
 	}
 
-	cout << endl<<"«õ¥Xªº¬}¬O" << hole << "­Ó¡A¤U­±¬O³o¦¸ªºÃD¥Ø" << endl<<endl;
+	cout << endl<<"æŒ–å‡ºçš„æ´æ˜¯" << hole << "å€‹ï¼Œä¸‹é¢æ˜¯é€™æ¬¡çš„é¡Œç›®" << endl<<endl;
 
-    while (Ans != 1) // ÀË¬dÃD¥Ø¬O§_¦³°ß¤@¸Ñ¡A¥B¸Ñµª»PÃD¥Ø¤@­P
+    while (Ans != 1) // æª¢æŸ¥é¡Œç›®æ˜¯å¦æœ‰å”¯ä¸€è§£ï¼Œä¸”è§£ç­”èˆ‡é¡Œç›®ä¸€è‡´
     {
-        DigSudoku Board_Dig(board, hole); // «õ¬}¥XÃD
-        digboard = Board_Dig.get_board(); // ¨ú±o«õ¬}«áªº´Ñ½L
-        SolveSudoku Board_Solve(digboard, 0); // ¸ÑÃD
-        Ans = Board_Solve.getAns(); // ¨ú±oÃD¥ØÁ`¦@¦³¦h¤Ö­Ó¸Ñ
+        DigSudoku Board_Dig(board, hole); // æŒ–æ´å‡ºé¡Œ
+        digboard = Board_Dig.get_board(); // å–å¾—æŒ–æ´å¾Œçš„æ£‹ç›¤
+        SolveSudoku Board_Solve(digboard, 0); // è§£é¡Œ
+        Ans = Board_Solve.getAns(); // å–å¾—é¡Œç›®ç¸½å…±æœ‰å¤šå°‘å€‹è§£
         if (Ans == 1 && board != Board_Solve.get_board())
         {
             Ans = 0;
         }
     }
-   print_board(digboard); // ¦L¥XÃD¥Ø
+   print_board(digboard); // å°å‡ºé¡Œç›®
+
    if (playerchose == 0) {
-	   cout << "¹q¸£¸Ñ¥Xªºµª®×¬O:" << endl;
-	   print_board(board); // ±N´Ñ½L¦L¥X
-	   cout << "¬O¤£¬O«Ü§Ö©OAwA?" << endl;
+	   cout << "é›»è…¦è§£å‡ºçš„ç­”æ¡ˆæ˜¯:" << endl;
+	   print_board(board); 
+	   cout << "æ˜¯ä¸æ˜¯å¾ˆå¿«å‘¢AwA?" << endl;
 	   return 0;
    }
 
-   cout  << "¥ª¤W¬°(1,1)  ¥k¤W¬°(9,1)  ¥ª¤U¬O(1,9)  ¥k¤U¬O(9,9) ¨Ì¦¹Ãş±À"<<endl;
-   cout << "½Ğ¿é¤J·Q­n¿é¤Jªº¦ì¸m«á ¦A¿é¤J·Q­n¿é¤Jªº¼Æ¦r¡A¨Ò: 6 7 8 ´N¬O(6,7)ªº¦a¤è¿é¤J{8}" << endl;
+   cout  << "å·¦ä¸Šç‚º(1,1)  å³ä¸Šç‚º(9,1)  å·¦ä¸‹æ˜¯(1,9)  å³ä¸‹æ˜¯(9,9) ä¾æ­¤é¡æ¨"<<endl;
+   cout << "è«‹è¼¸å…¥æƒ³è¦è¼¸å…¥çš„ä½ç½®å¾Œ å†è¼¸å…¥æƒ³è¦è¼¸å…¥çš„æ•¸å­—ï¼Œä¾‹: 6 7 8 å°±æ˜¯(6,7)çš„åœ°æ–¹è¼¸å…¥{8}" << endl;
    int x, y,pa;
    cin >> x >> y>>pa;
    
-   cout <<"¦¹³¡¤À©|¥¼§¹¤u¡A½Ğ¥I¶O¸ÑÂê§ó¦h¤º®e"<< endl;
+   cout <<"æ­¤éƒ¨åˆ†å°šæœªå®Œå·¥ï¼Œå¾ˆæŠ±æ­‰"<< endl;
 
 
 
@@ -118,7 +119,7 @@ int main()
     return 0;
 }
 
-void print_board(vector <int > board) //±N´Ñ½L¦L¥X
+void print_board(vector <int > board) //å°‡æ£‹ç›¤å°å‡º
 {
     for (int i = 0; i < board.size(); i++)
     {
@@ -131,10 +132,3 @@ void print_board(vector <int > board) //±N´Ñ½L¦L¥X
     }
     cout << endl;
 }
-
-
-
-	
-
-	
-
